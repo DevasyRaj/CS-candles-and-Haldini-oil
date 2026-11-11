@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS Candles & Haldini Hair Oil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --turmeric:#E8A317; --neem:#17352A; --plum:#3B1F2B; --flame:#FFB347; --paper:#FFFBF0; --ink:#2A2118;
+  --display:'Gloock',Georgia,serif; --body:'Karla',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--flame);outline-offset:3px}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;background:var(--paper);position:sticky;top:0;z-index:5;border-bottom:1px solid #e9dfc6}
+.brand{font-family:var(--display);font-size:1.25rem;text-decoration:none}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:600}
+nav a:hover{text-decoration:underline}
+
+/* Hero: two products, two worlds */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:78vh}
+.half{padding:9vh 5vw;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.half h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5vw,4rem);line-height:1.05}
+.half p{max-width:34ch;font-size:1.1rem}
+.oil{background:var(--turmeric);color:var(--neem)}
+.candle{background:var(--plum);color:#FBEFDD;position:relative}
+.btn{align-self:flex-start;display:inline-block;padding:12px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid currentColor}
+.oil .btn{background:var(--neem);color:var(--paper);border-color:var(--neem)}
+.candle .btn{background:var(--flame);color:var(--plum);border-color:var(--flame)}
+.btn:hover{transform:translateY(-2px)}
+
+/* the one animated moment: the flame */
+.flame{width:26px;height:44px;background:radial-gradient(circle at 50% 70%,#fff3c4 0,var(--flame) 45%,#e5692b 100%);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;box-shadow:0 0 40px 14px rgba(255,179,71,.45);animation:flick 2.4s ease-in-out infinite;transform-origin:50% 100%}
+.stick{width:4px;height:12px;background:#2a1a14;margin-top:-2px;margin-left:11px}
+@keyframes flick{0%,100%{transform:scale(1,1) rotate(-1deg)}30%{transform:scale(.94,1.06) rotate(2deg)}60%{transform:scale(1.04,.96) rotate(-2deg)}}
+
+section{padding:9vh 5vw}
+.wrap{max-width:1000px;margin:0 auto}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px;line-height:1.15}
+.lead{max-width:60ch;margin-bottom:34px}
+
+.products{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.product{padding:30px;border-radius:6px 28px 6px 28px}
+.product.o{background:#FBE7B0}
+.product.c{background:#EBD7DC}
+.product h3{font-family:var(--display);font-weight:400;font-size:1.6rem;margin-bottom:8px}
+.product ul{padding-left:1.1em;margin:12px 0}
+
+.candles{background:var(--plum);color:#FBEFDD}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.card{background:#EBD7DC;color:var(--ink);padding:16px 16px 24px;border-radius:6px 28px 6px 28px;display:flex;flex-direction:column;gap:14px}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px 18px 6px 18px;display:block}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.35rem;line-height:1.25}
+.candles .btn{background:var(--plum);color:var(--paper);border-color:var(--plum)}
+.candles .btn:hover{background:var(--neem);border-color:var(--neem)}
+.more-h{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:46px 0 16px}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px 18px 6px 18px;display:block}
+
+.amazon{background:#FBE7B0}
+.amazon-card{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--paper);padding:32px;border-radius:6px 28px 6px 28px;border:2px solid var(--neem)}
+.amazon-card .size{font-family:var(--display);font-size:2.4rem;color:var(--neem);line-height:1}
+.amazon-card h3{font-family:var(--display);font-weight:400;font-size:1.45rem;margin-bottom:12px;line-height:1.25}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 20px}
+.tags li{background:var(--turmeric);color:var(--neem);font-weight:600;font-size:.92rem;padding:5px 14px;border-radius:999px}
+.amazon .btn{background:var(--neem);color:var(--paper);border-color:var(--neem)}
+
+.about{background:var(--neem);color:var(--paper)}
+.yt{background:#FBE7B0}
+.yt .btn{background:var(--plum);color:var(--paper);border-color:var(--plum)}
+.about .lead{margin-bottom:0}
+
+.contact form{display:grid;gap:14px;max-width:520px}
+label{font-weight:600;display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:11px 12px;border:1.5px solid #b9a97f;border-radius:8px;background:#fff}
+button{font:inherit;font-weight:600;cursor:pointer;padding:12px 24px;border-radius:999px;border:0;background:var(--neem);color:var(--paper);justify-self:start}
+button:hover{background:var(--plum)}
+#msg{font-weight:600;min-height:1.5em}
+.findus{margin-top:48px;max-width:720px}
+.findus h3{font-family:var(--display);font-weight:400;font-size:1.6rem;margin-bottom:6px}
+.findus iframe{width:100%;height:320px;border:0;border-radius:6px 22px 6px 22px;margin:12px 0}
+.findus a{font-weight:600}
+footer{padding:28px 5vw;background:var(--ink);color:#d8ccb0;text-align:center;font-size:.95rem}
+
+@media(max-width:760px){
+  .hero,.products,.amazon-card{grid-template-columns:1fr}
+  .half{padding:7vh 6vw}
+  nav{gap:14px;font-size:.95rem}
+}
+@media(prefers-reduced-motion:reduce){.flame{animation:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#top">CS Candles &amp; Haldini</a>
+  <nav aria-label="Main">
+    <a href="#products">Products</a>
+    <a href="#candles">Candles</a>
+    <a href="#amazon">Amazon</a>
+    <a href="#about">About</a>
+    <a href="#contact">Order</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="half oil">
+      <h1>Haldini Hair Oil</h1>
+      <p>A hair oil made with the care of a home recipe, for hair that feels nourished and looks healthy.</p>
+      <a class="btn" href="#contact">Order Haldini</a>
+    </div>
+    <div class="half candle">
+      <div aria-hidden="true"><div class="flame"></div><div class="stick"></div></div>
+      <h1>CS Candles</h1>
+      <p>Hand-poured candles that turn any room into a calm, warm corner.</p>
+      <a class="btn" href="#contact">Order candles</a>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <h2>What we make</h2>
+      <p class="lead">Two small-batch products, made by hand and sold directly to you.</p>
+      <div class="products">
+        <article class="product o">
+          <h3>Haldini Hair Oil</h3>
+          <p>Our signature hair oil, made for regular use at home.</p>
+          <ul>
+            <li>Massage into scalp and lengths</li>
+            <li>Leave on before washing</li>
+            <li>Made in small batches</li>
+          </ul>
+          <a href="#contact">Ask for sizes and prices</a>
+        </article>
+        <article class="product c">
+          <h3>CS Candles</h3>
+          <p>Candles for gifting, festivals, or an everyday evening.</p>
+          <ul>
+            <li>Hand-poured, one batch at a time</li>
+            <li>Different scents and sizes</li>
+            <li>Custom orders for gifts</li>
+          </ul>
+          <a href="#candles">See all candles</a> &middot; <a href="#contact">Ask for scents and prices</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="candles" class="candles">
+    <div class="wrap">
+      <h2>CS Candles</h2>
+      <p class="lead">Hand-made candles for gifting, festivals and everyday evenings. Tap a candle to order it on WhatsApp.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="images/flowers.jpg" alt="Two flower candles: a yellow sunflower and a red rose-style flower in gold-edged containers" loading="lazy" style="object-position:center">
+          <h3>Container Candle Rose</h3>
+          <a class="btn" href="https://wa.me/919717233011?text=Hello%21%20I%20would%20like%20to%20order%3A%20Container%20Candle%20Rose" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+        </article>
+        <article class="card">
+          <img src="images/bubble.jpg" alt="Bubble cube decorative candle on a brass plate with flower petals" loading="lazy" style="object-position:center">
+          <h3>Bubble Cube Decorative Pink Wax</h3>
+          <a class="btn" href="https://wa.me/919717233011?text=Hello%21%20I%20would%20like%20to%20order%3A%20Bubble%20Cube%20Decorative%20Pink%20Wax" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+        </article>
+        <article class="card">
+          <img src="images/stained.jpg" alt="Stained glass candle holder with a yellow and red candle" loading="lazy" style="object-position:center 55%">
+          <h3>Hand Made Kesar Chandan Aroma Candle Pack of 2</h3>
+          <a class="btn" href="https://wa.me/919717233011?text=Hello%21%20I%20would%20like%20to%20order%3A%20Hand%20Made%20Kesar%20Chandan%20Aroma%20Candle%20Pack%20of%202" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+        </article>
+      </div>
+      <h3 class="more-h">More designs</h3>
+      <div class="strip">
+        <img src="images/cube.jpg" alt="Yellow and red cube candle with marigold flowers" loading="lazy" style="object-position:center 60%">
+        <img src="images/diya.jpg" alt="Lit sunflower and flower candles on a brass tray with marigolds" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="amazon" class="amazon">
+    <div class="wrap">
+      <h2>Also on Amazon</h2>
+      <p class="lead">Prefer to order online? Haldini Hair Oil is available on Amazon India.</p>
+      <article class="amazon-card">
+        <div class="size" aria-label="100 millilitres">100ml</div>
+        <div>
+          <h3>Haldini Ayurveda Hair Oil with Rosemary &amp; 17 Jadi Buti</h3>
+          <ul class="tags" aria-label="Product features">
+            <li>Anti Hair Fall</li>
+            <li>Anti Dandruff</li>
+            <li>Scalp Nourishing</li>
+            <li>No Sulphates &amp; Parabens</li>
+            <li>For Men &amp; Women</li>
+          </ul>
+          <a class="btn" href="https://amzn.in/d/03CPTS5b" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>Made by hand, with care</h2>
+      <p class="lead">CS Candles and Haldini Hair Oil are run as a family business. Every bottle and candle is made in small quantities, so you get something personal instead of something mass-produced.</p>
+    </div>
+  </section>
+
+  <section id="youtube" class="yt">
+    <div class="wrap">
+      <h2>Watch us on YouTube</h2>
+      <p class="lead">Follow our YouTube channel, Alaka ki rasoi.</p>
+      <a class="btn" href="https://youtube.com/@alka_kee_rasoi?si=gKfgY3Uz0Bx7Y8Pw" target="_blank" rel="noopener noreferrer">Visit Alaka ki rasoi</a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Place an order</h2>
+      <p class="lead">Tell us what you would like and we will reply with prices and delivery details.</p>
+      <form id="orderForm">
+        <label>Your name <input name="name" required autocomplete="name"></label>
+        <label>Phone number <input name="phone" type="tel" required autocomplete="tel"></label>
+        <label>Product
+          <select name="product">
+            <option>Haldini Hair Oil</option>
+            <option>CS Candles</option>
+            <option>Both</option>
+          </select>
+        </label>
+        <label>Delivery address <textarea name="address" rows="3" required autocomplete="street-address" placeholder="House no., street, city, PIN code"></textarea></label>
+        <button type="submit">Send order on WhatsApp</button>
+        <p id="msg" role="status"></p>
+      </form>
+
+      <div class="findus">
+        <h3>Find us</h3>
+        <p id="addrText"></p>
+        <iframe id="map" title="Map showing our location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
+        <p id="mapLinkWrap" hidden><a id="mapLink" href="#" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="yr"></span> CS Candles &amp; Haldini Hair Oil. Phone: +91 97172 33011</p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Replace with the real shop address (the map below is built from this text)
+  const BUSINESS_ADDRESS = "Add your shop address here";
+
+  document.getElementById('addrText').textContent = BUSINESS_ADDRESS;
+  if (BUSINESS_ADDRESS.indexOf("Add your") !== 0) {
+    const q = encodeURIComponent(BUSINESS_ADDRESS);
+    const map = document.getElementById('map');
+    map.src = "https://www.google.com/maps?q=" + q + "&output=embed";
+    map.hidden = false;
+    document.getElementById('mapLink').href = "https://www.google.com/maps/search/?api=1&query=" + q;
+    document.getElementById('mapLinkWrap').hidden = false;
+  }
+
+  // Your mother's WhatsApp number: country code + number, no + or spaces
+  const WHATSAPP_NUMBER = "919717233011";
+
+  document.getElementById('orderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = new FormData(this);
+    const text = "Hello! I would like to order.\n" +
+      "Name: " + f.get('name') + "\n" +
+      "Phone: " + f.get('phone') + "\n" +
+      "Product: " + f.get('product') + "\n" +
+      "Address: " + f.get('address');
+    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text), "_blank");
+    document.getElementById('msg').textContent = "Opening WhatsApp with your order...";
+  });
+</script>
+</body>
+</html>
